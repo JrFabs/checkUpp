@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feeling Well?</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: #a3b18a;
+      font-family: cursive;
+    }
+
+    h1 {
+      margin-top: 200px;
+    }
+
+    button {
+      font-size: 24px;
+      padding: 10px 20px;
+      margin: 20px;
+      border: none;
+      border-radius: 12px;
+      background-color: #dad7cd;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Are you feeling well?</h1>
+  <button id="yesButton" id = "yesBtn">Yes</button>
+  <button id="noButton" id = "noBtn">No</button>
+
+  <img id="happyImage" src="https://i.pinimg.com/474x/0f/b9/f0/0fb9f0d29a9b43866cf7c2cc12b3fd3f.jpg" class="hidden">
+
+  <script>
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const happyImage = document.getElementById('happyImage');
+
+    let yesButtonSize = 24; // Initial size of the yes button
+    let noButtonSize = 24; // Initial size of the no button
+
+    noButton.addEventListener('click', () => {
+      yesButtonSize += 15; // Increase size by 4 pixels (adjust as needed)
+      noButtonSize -= 4; // Decrease size by 2 pixels (adjust as needed)
+      yesButton.style.fontSize = `${yesButtonSize}px`;
+      noButton.style.fontSize = `${noButtonSize}px`;
+
+      // Prevent the "No" button from becoming too small
+      if (noButtonSize < 12) {
+        noButtonSize = 12;
+      }
+    });
+
+    yesButton.addEventListener('click', () => {
+      document.querySelector('h1').textContent = 'Yehey! Good to know!';
+      happyImage.classList.remove('hidden');
+      yesButton.style.display = "none";
+      noButton.style.display = "none";
+
+   
+    });
+  </script>
+</body>
+</html>
